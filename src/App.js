@@ -1,25 +1,58 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import ShowInfo from './ShowInfo'
 
-function App() {
+const API = 'https://www.omdbapi.com/?t=the+hunger+games&plot=full?i=tt3896198&apikey=b6fe8a66'
+
+class App extends React.Component {
+  state= {
+    title: '',
+    dataTitle: null,
+    url: '',
+  }
+
+  handleDataFetch = (url) => {
+  fetch(url)
+  .then(response => response)
+  .then(response => response.json())
+  .then(respone => {
+    this.setState({
+      dataTitle: respone,
+    })
+  })
+}
+
+  handleInput = (e) => {
+    this.setState({
+      title: e.target.value
+    })
+  }
+
+  handleClick= () => {
+    const title = this.state.title
+    const a = "the+hunger+games"
+    const b = () => {
+      const changeTitle = title.replace(" ","+")
+      return (changeTitle)
+    }
+    const url = API.replace( a, b)
+    return (
+    this.handleDataFetch(url)
+    )
+  }
+
+  render() {
+    console.log(this.state.dataTitle)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <label> Wpisz tytuł: <input type="text" value={this.state.title} onChange={this.handleInput}/></label>
+        <button onClick={this.handleClick}>Wyświetl info</button>
+      </div>
+      {this.state.dataTitle ? <ShowInfo data={this.state.dataTitle}/> : null }
+    </>
   );
+}
 }
 
 export default App;
