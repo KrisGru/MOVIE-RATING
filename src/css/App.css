@@ -1,14 +1,16 @@
-/* .nav li {
-  float: left;
-  list-style-type: none;
-  margin: 5px 5px
-}
-ul {
+img {
+  width: 70%;
+  height: 250px;
   display: block;
-  border: solid black 2px;
-} */
+}
 
+.div {
+  float:left;
+  width: 25%;
+  padding: 20px;
+  margin: 10px;
+}
 
-.nav {
-  background-color: red;
+h2 {
+  height: 30px;
 }

@@ -1,5 +1,6 @@
 import '../css/App.css';
 import React from 'react';
+import Pulpit from './Pulpit'
 
 const API = 'https://www.omdbapi.com/?t=the+hunger+games&plot=full?i=tt3896198&apikey=b6fe8a66'
 const API2 = [{api:'https://www.omdbapi.com/?t=pinocchio&plot=full?i=tt3896198&apikey=b6fe8a66', id: 1,}, {api:'https://www.omdbapi.com/?t=kick+ass&plot=full?i=tt3896198&apikey=b6fe8a66', id: 2,},
@@ -48,7 +49,6 @@ class App extends React.Component {
           if (title.Response === 'False') {
             return null
           } else {
-            //API3.push(title)
             const pulpitTitle = [...this.state.pulpitTitle]
             pulpitTitle.push(title)
             this.setState({
@@ -66,12 +66,17 @@ class App extends React.Component {
         <label> Wpisz tytuł: <input type="text" value={this.state.title} onChange={this.handleInput}/></label>
         <button onClick={this.handleClick}>Wyświetl info</button>
       </div>
+      {this.state.searchTitle === "" ? null :
+      <div className="div" key={this.state.searchTitle.imdbID}>
+        <img src={this.state.searchTitle.Poster} alt="movie's poster"/>
+        <h2>{this.state.searchTitle.Title}</h2>
+        <p>{this.state.searchTitle.Genre}</p>
+      </div>
+    }
+      <Pulpit pulpitTitle={this.state.pulpitTitle} searchTitle={this.state.searchTitle}/>
     </>
   );
-}
-
-
-
+  }
 }
 
 export default App;
