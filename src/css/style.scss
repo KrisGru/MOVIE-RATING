@@ -1,0 +1,27 @@
+$main-color: #E9C2A6;
+$default-font: arial;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  background-color: $main-color;
+  font-family: $default-font;
+}
+
+.wrapper {
+  //kontener
+  display: flex;
+  flex-wrap: wrap;
+  //pozycja
+  max-width:1000px;
+  margin: 5px auto 0 auto;
+  //wygląd
+  font-size: 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 4px #000;
+}

@@ -1,11 +1,14 @@
 import '../css/App.css';
+import '../css/style.scss'
 import React from 'react';
-import Pulpit from './Pulpit'
+import Pulpit from './Pulpit';
+import Searching from './Searching';
+import Results from './Results';
 
 const API = 'https://www.omdbapi.com/?t=the+hunger+games&plot=full?i=tt3896198&apikey=b6fe8a66'
-const API2 = [{api:'https://www.omdbapi.com/?t=pinocchio&plot=full?i=tt3896198&apikey=b6fe8a66', id: 1,}, {api:'https://www.omdbapi.com/?t=kick+ass&plot=full?i=tt3896198&apikey=b6fe8a66', id: 2,},
-{api:'https://www.omdbapi.com/?t=die+hard&plot=full?i=tt3896198&apikey=b6fe8a66', id: 3,}, {api:'https://www.omdbapi.com/?t=american+pie&plot=full?i=tt3896198&apikey=b6fe8a66', id:4,},
- {api:'https://www.omdbapi.com/?t=hangover&plot=full?i=tt3896198&apikey=b6fe8a66', id:5,}, {api:'https://www.omdbapi.com/?t=made+of+honor&plot=full?i=tt3896198&apikey=b6fe8a66', id:6,}
+const API2 = [{api:'https://www.omdbapi.com/?t=orange+is+the+new+black&plot=full?i=tt3896198&apikey=b6fe8a66', id: 1,}, {api:'https://www.omdbapi.com/?t=vikings&plot=full?i=tt3896198&apikey=b6fe8a66', id: 2,},
+{api:'https://www.omdbapi.com/?t=how+i+met+your+mother&plot=full?i=tt3896198&apikey=b6fe8a66', id: 3,}, {api:'https://www.omdbapi.com/?t=american+pie&plot=full?i=tt3896198&apikey=b6fe8a66', id:4,},
+ {api:'https://www.omdbapi.com/?t=lucifer&plot=full?i=tt3896198&apikey=b6fe8a66', id:5,}, {api:'https://www.omdbapi.com/?t=peaky+blinders&plot=full?i=tt3896198&apikey=b6fe8a66', id:6,}
 ]
 
 class App extends React.Component {
@@ -36,6 +39,7 @@ class App extends React.Component {
   })
   .then(response => response.json())
   .then(title => {
+    console.log(title)
       this.setState({
       searchTitle: title,
       })
@@ -61,20 +65,11 @@ class App extends React.Component {
 
   render() {
   return (
-    <>
-      <div>
-        <label> Wpisz tytuł: <input type="text" value={this.state.title} onChange={this.handleInput}/></label>
-        <button onClick={this.handleClick}>Wyświetl info</button>
-      </div>
-      {this.state.searchTitle === "" ? null :
-      <div className="div" key={this.state.searchTitle.imdbID}>
-        <img src={this.state.searchTitle.Poster} alt="movie's poster"/>
-        <h2>{this.state.searchTitle.Title}</h2>
-        <p>{this.state.searchTitle.Genre}</p>
-      </div>
-    }
+    <div className="wrapper">
+      <Searching title={this.state.title} handleClick={this.handleClick} handleInput={this.handleInput}/>
+      <Results searchTitle={this.state.searchTitle}/>
       <Pulpit pulpitTitle={this.state.pulpitTitle} searchTitle={this.state.searchTitle}/>
-    </>
+    </div>
   );
   }
 }
