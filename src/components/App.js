@@ -1,9 +1,9 @@
-import '../css/App.css';
-import '../css/style.scss'
+import '../css/style.scss';
 import React from 'react';
 import Pulpit from './Pulpit';
 import Searching from './Searching';
-import Results from './Results';
+import Nav from './Nav';
+import Footer from './Footer';
 
 const API = 'https://www.omdbapi.com/?t=the+hunger+games&plot=full?i=tt3896198&apikey=b6fe8a66'
 const API2 = [{api:'https://www.omdbapi.com/?t=orange+is+the+new+black&plot=full?i=tt3896198&apikey=b6fe8a66', id: 1,}, {api:'https://www.omdbapi.com/?t=vikings&plot=full?i=tt3896198&apikey=b6fe8a66', id: 2,},
@@ -27,10 +27,14 @@ class App extends React.Component {
   handleClick= () => {
     const replace= () => this.state.title.replace(" ","+")
     const api = API.replace( "the+hunger+games", replace)
+      this.setState({
+        title: '',
+      })
     return (
     this.handleFetch(api)
     )
   }
+
 
   handleFetch = (url) => {
   fetch(url)
@@ -39,7 +43,6 @@ class App extends React.Component {
   })
   .then(response => response.json())
   .then(title => {
-    console.log(title)
       this.setState({
       searchTitle: title,
       })
@@ -67,8 +70,9 @@ class App extends React.Component {
   return (
     <div className="wrapper">
       <Searching title={this.state.title} handleClick={this.handleClick} handleInput={this.handleInput}/>
-      <Results searchTitle={this.state.searchTitle}/>
+      <Nav />
       <Pulpit pulpitTitle={this.state.pulpitTitle} searchTitle={this.state.searchTitle}/>
+      <Footer />
     </div>
   );
   }

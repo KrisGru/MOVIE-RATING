@@ -1,4 +1,4 @@
-$main-color: #E9C2A6;
+$main-color: #DAA520;
 $default-font: arial;
 
 * {
@@ -9,7 +9,7 @@ $default-font: arial;
 
 html {
   font-size: 10px;
-  background-color: $main-color;
+  background-color: #fff;
   font-family: $default-font;
 }
 
@@ -17,6 +17,7 @@ html {
   //kontener
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   //pozycja
   max-width:1000px;
   margin: 5px auto 0 auto;
