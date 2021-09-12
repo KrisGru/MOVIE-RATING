@@ -9,7 +9,7 @@ const Movie = (props) => {
         <p className="movies__category">{props.category}</p>
         <p className="movies__rating">{props.rating}</p>
         {props.showModalID===props.id  && props.showModal ? <div>{props.id}</div> : null}
-        <article>próba pull requesta. Co myślisz Seba? ;) miłej niedzieli!!!!</article>
+        <article>proba 2 pull rqust :) milej niedzieli Seba</article>
       </section>
     )
   }
