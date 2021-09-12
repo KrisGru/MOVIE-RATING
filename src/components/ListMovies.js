@@ -1,8 +1,8 @@
 import '../css/pulpitAndMovie.scss';
 import Movie from './Movie';
 
-const Pulpit = (props) => {
-  const movie = props.pulpitTitle.map(movie =>(
+const ListMovies = (props) => {
+  const movie = props.listMovies.map(movie =>(
     <Movie
       title={movie.Title}
       category={movie.Genre}
@@ -10,16 +10,16 @@ const Pulpit = (props) => {
       image={movie.Poster} key={movie.imdbID}
       id={movie.imdbID}
       handleClickShowModal={props.handleClickShowModal}
-      showModal={props.showModal}
-      idCheck={props.idCheck}/>
+      showModalClick={props.showModalClick}
+      showModalID={props.showModalID}/>
     ))
 
   return (
-    <section className="pulpit">
-      <header className="pulpit__header">Recommmend</header>
+    <section className="listMovies">
+      <header className="listMovies__header">Recommmend</header>
       {movie}
     </section>
   )
 }
 
-export default Pulpit;
+export default ListMovies;
