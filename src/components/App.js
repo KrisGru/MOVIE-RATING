@@ -14,6 +14,8 @@ const API2 = [{api:'https://www.omdbapi.com/?t=orange+is+the+new+black&plot=full
 class App extends React.Component {
   state = {
     title: "",
+    showModal: false,
+    idCheck: "",
     searchTitle: "",
     pulpitTitle: [],
   }
@@ -35,12 +37,9 @@ class App extends React.Component {
     )
   }
 
-
   handleFetch = (url) => {
   fetch(url)
-  .then(response => {
-    if(response.ok) {return response}
-  })
+  .then(response => response)
   .then(response => response.json())
   .then(title => {
       this.setState({
@@ -51,27 +50,43 @@ class App extends React.Component {
   componentDidMount() {
     API2.map(movie => (
       fetch(movie.api)
-        .then(response => response.json())
-        .then(title => {
-          if (title.Response === 'False') {
-            return null
+      .then(response => response.json())
+      .then(title => {
+          if (title.Response === 'False') { return null
           } else {
             const pulpitTitle = [...this.state.pulpitTitle]
             pulpitTitle.push(title)
             this.setState({
               pulpitTitle
-            })
-          }
-          }
-        )) )
+              })
+            }
+        }
+      ))
+    )
+  }
+
+  handleClickShowModal = (id) => {
+    this.setState({
+      showModal: !this.state.showModal,
+      idCheck: id,
+    })
+
   }
 
   render() {
   return (
     <div className="wrapper">
-      <Searching title={this.state.title} handleClick={this.handleClick} handleInput={this.handleInput}/>
+      <Searching
+        title={this.state.title}
+        handleClick={this.handleClick}
+        handleInput={this.handleInput}/>
       <Nav />
-      <Pulpit pulpitTitle={this.state.pulpitTitle} searchTitle={this.state.searchTitle}/>
+      <Pulpit
+        pulpitTitle={this.state.pulpitTitle}
+        searchTitle={this.state.searchTitle}
+        handleClickShowModal={this.handleClickShowModal}
+        showModal={this.state.showModal}
+        idCheck={this.state.idCheck}/>
       <Footer />
     </div>
   );

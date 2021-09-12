@@ -1,15 +1,16 @@
 import '../css/pulpitAndMovie.scss';
 
 const Movie = (props) => {
+  
   return (
-    props.pulpitTitle.map(movie => (
-      <section className="movies" key={movie.imdbID}>
-        <img className="movies__image" src={movie.Poster} alt="movie's poster"/>
-        <h2 className="movies__title">{movie.Title}</h2>
-        <p className="movies__category">{movie.Genre}</p>
-        <p className="movies__rating">{movie.Ratings[0].Value}</p>
+      <section className="movies" id={props.id} onClick={() => props.handleClickShowModal(props.id) }>
+        <img className="movies__image" src={props.image} alt="movie's poster"/>
+        <h2 className="movies__title">{props.title}</h2>
+        <p className="movies__category">{props.category}</p>
+        <p className="movies__rating">{props.rating}</p>
+        {props.idCheck===props.id && props.showModal ? <div>{props.id}</div> : null}
       </section>
-    )))
+    )
   }
 
 export default Movie;
