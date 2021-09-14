@@ -1,0 +1,14 @@
+
+
+.modal {
+  position: fixed;
+  z-index: 3;
+  margin: auto;
+  background-color: white;
+  display: flex;
+  flex-basis: 40%;
+  border: 2px solid green;
+  height: 400px;
+  width: 400px;
+  transition: transform 1s ease-in-out;
+}

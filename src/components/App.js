@@ -1,28 +1,37 @@
-import '../css/App.css';
+import '../css/style.scss';
 import React from 'react';
+import ListMovies from './ListMovies';
+import Searching from './Searching';
+import Nav from './Nav';
+import Footer from './Footer';
 
 const API = 'https://www.omdbapi.com/?t=the+hunger+games&plot=full?i=tt3896198&apikey=b6fe8a66'
-const API2 = [{api:'https://www.omdbapi.com/?t=pinocchio&plot=full?i=tt3896198&apikey=b6fe8a66', id: 1,}, {api:'https://www.omdbapi.com/?t=kick+ass&plot=full?i=tt3896198&apikey=b6fe8a66', id: 2,},
-{api:'https://www.omdbapi.com/?t=die+hard&plot=full?i=tt3896198&apikey=b6fe8a66', id: 3,}, {api:'https://www.omdbapi.com/?t=american+pie&plot=full?i=tt3896198&apikey=b6fe8a66', id:4,},
- {api:'https://www.omdbapi.com/?t=hangover&plot=full?i=tt3896198&apikey=b6fe8a66', id:5,}, {api:'https://www.omdbapi.com/?t=made+of+honor&plot=full?i=tt3896198&apikey=b6fe8a66', id:6,}
+const API2 = [{api:'https://www.omdbapi.com/?t=orange+is+the+new+black&plot=full?i=tt3896198&apikey=b6fe8a66', id: 1,}, {api:'https://www.omdbapi.com/?t=vikings&plot=full?i=tt3896198&apikey=b6fe8a66', id: 2,},
+{api:'https://www.omdbapi.com/?t=how+i+met+your+mother&plot=full?i=tt3896198&apikey=b6fe8a66', id: 3,}, {api:'https://www.omdbapi.com/?t=american+pie&plot=full?i=tt3896198&apikey=b6fe8a66', id:4,},
+ {api:'https://www.omdbapi.com/?t=lucifer&plot=full?i=tt3896198&apikey=b6fe8a66', id:5,}, {api:'https://www.omdbapi.com/?t=peaky+blinders&plot=full?i=tt3896198&apikey=b6fe8a66', id:6,}
 ]
 
 class App extends React.Component {
   state = {
-    title: "",
+    input: "",
     searchTitle: "",
-    pulpitTitle: [],
+    listMovies: [],
+    showModalClick: false,
+    showModalID: "",
   }
 
   handleInput = (e) => {
     this.setState({
-      title: e.target.value
+      input: e.target.value
     })
   }
 
-  handleClick= () => {
-    const replace= () => this.state.title.replace(" ","+")
+  handleSearchClick= () => {
+    const replace= () => this.state.input.replace(" ","+")
     const api = API.replace( "the+hunger+games", replace)
+      this.setState({
+        input: '',
+      })
     return (
     this.handleFetch(api)
     )
@@ -30,9 +39,7 @@ class App extends React.Component {
 
   handleFetch = (url) => {
   fetch(url)
-  .then(response => {
-    if(response.ok) {return response}
-  })
+  .then(response => response)
   .then(response => response.json())
   .then(title => {
       this.setState({
@@ -43,35 +50,47 @@ class App extends React.Component {
   componentDidMount() {
     API2.map(movie => (
       fetch(movie.api)
-        .then(response => response.json())
-        .then(title => {
-          if (title.Response === 'False') {
-            return null
+      .then(response => response.json())
+      .then(title => {
+          if (title.Response === 'False') { return null
           } else {
-            //API3.push(title)
-            const pulpitTitle = [...this.state.pulpitTitle]
-            pulpitTitle.push(title)
+            const listMovies = [...this.state.listMovies]
+            listMovies.push(title)
             this.setState({
-              pulpitTitle
-            })
-          }
-          }
-        )) )
+              listMovies
+              })
+            }
+        }
+      ))
+    )
+  }
+
+  handleClickShowModal = (id) => {
+    this.setState({
+      showModalClick: !this.state.showModalClick,
+      showModalID: id,
+    })
+
   }
 
   render() {
   return (
-    <>
-      <div>
-        <label> Wpisz tytuł: <input type="text" value={this.state.title} onChange={this.handleInput}/></label>
-        <button onClick={this.handleClick}>Wyświetl info</button>
-      </div>
-    </>
+    <div className="wrapper">
+      <Searching
+        input={this.state.input}
+        handleSearchClick={this.handleSearchClick}
+        handleInput={this.handleInput}/>
+      <Nav />
+      <ListMovies
+        listMovies={this.state.listMovies}
+        searchTitle={this.state.searchTitle}
+        handleClickShowModal={this.handleClickShowModal}
+        showModalClick={this.state.showModalClick}
+        showModalID={this.state.showModalID}/>
+      <Footer />
+    </div>
   );
-}
-
-
-
+  }
 }
 
 export default App;

@@ -9,9 +9,12 @@ const ListMovies = (props) => {
       rating={movie.Ratings[0].Value}
       image={movie.Poster} key={movie.imdbID}
       id={movie.imdbID}
+      rated={movie.Rated}
+      runtime={movie.Runtime}
       handleClickShowModal={props.handleClickShowModal}
       showModalClick={props.showModalClick}
-      showModalID={props.showModalID}/>
+      showModalID={props.showModalID}
+      />
     ))
 
   return (
