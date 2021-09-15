@@ -1,14 +1,14 @@
-import '../css/style.scss';
+
 import React from 'react';
 import ListMovies from './ListMovies';
 import Searching from './Searching';
 import Nav from './Nav';
 import Footer from './Footer';
 
-const API = 'https://www.omdbapi.com/?t=the+hunger+games&plot=full?i=tt3896198&apikey=b6fe8a66'
-const API2 = [{api:'https://www.omdbapi.com/?t=orange+is+the+new+black&plot=full?i=tt3896198&apikey=b6fe8a66', id: 1,}, {api:'https://www.omdbapi.com/?t=vikings&plot=full?i=tt3896198&apikey=b6fe8a66', id: 2,},
-{api:'https://www.omdbapi.com/?t=how+i+met+your+mother&plot=full?i=tt3896198&apikey=b6fe8a66', id: 3,}, {api:'https://www.omdbapi.com/?t=american+pie&plot=full?i=tt3896198&apikey=b6fe8a66', id:4,},
- {api:'https://www.omdbapi.com/?t=lucifer&plot=full?i=tt3896198&apikey=b6fe8a66', id:5,}, {api:'https://www.omdbapi.com/?t=peaky+blinders&plot=full?i=tt3896198&apikey=b6fe8a66', id:6,}
+const API = 'https://www.omdbapi.com/?t=the+hunger+games&plot=full&apikey=b6fe8a66'
+const API2 = [{api:'https://www.omdbapi.com/?t=orange+is+the+new+black&plot=full&apikey=b6fe8a66', id: 1,}, {api:'https://www.omdbapi.com/?t=vikings&plot=full&apikey=b6fe8a66', id: 2,},
+{api:'https://www.omdbapi.com/?t=how+i+met+your+mother&plot=full&apikey=b6fe8a66', id: 3,}, {api:'https://www.omdbapi.com/?t=american+pie&plot=full&apikey=b6fe8a66', id:4,},
+ {api:'https://www.omdbapi.com/?t=lucifer&plot=full&apikey=b6fe8a66', id:5,}, {api:'https://www.omdbapi.com/?t=peaky+blinders&plot=full&apikey=b6fe8a66', id:6,}
 ]
 
 class App extends React.Component {
@@ -70,7 +70,6 @@ class App extends React.Component {
       showModalClick: !this.state.showModalClick,
       showModalID: id,
     })
-
   }
 
   render() {
