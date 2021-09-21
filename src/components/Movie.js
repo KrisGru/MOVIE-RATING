@@ -14,10 +14,13 @@ const Movie = (props) => (
         title={props.title}
         category={props.category}
         rating={props.rating}
+        imdbRating={props.imdbRating}
         image={props.image}
         id={props.id}
         rated={props.rated}
         runtime={props.runtime}
+        score={props.score}
+        awards={props.awards}
         plot={props.plot}
         handleClickShowModal={props.handleClickShowModal}
       />
