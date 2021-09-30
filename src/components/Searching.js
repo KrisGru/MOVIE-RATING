@@ -1,9 +1,6 @@
 import logo from '../inne/logo.jpg';
-import '../css/searching.scss';
 
-const Searching = (props) => {
-
-  return (
+const Searching = (props) => (
     <div className="searching">
       <img src={logo} className="searching__image" alt="logo" />
       <input className="searching__input" type="text" value={props.input} onChange={props.handleInput} placeholder="search title"/>
@@ -12,6 +9,5 @@ const Searching = (props) => {
       <p className="searching__p">Create acount</p>
     </div>
   )
-}
 
 export default Searching;

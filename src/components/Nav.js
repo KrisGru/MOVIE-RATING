@@ -1,8 +1,6 @@
-import '../css/nav.scss';
 
-const Nav = () => {
 
-  return (
+const Nav = () => (
     <div className="menu">
       <ul className="menu__list">
         <li className="menu__item"><a href=" " className="menu__link">in theaters</a></li>
@@ -14,6 +12,5 @@ const Nav = () => {
       </ul>
       </div>
   )
-}
 
 export default Nav;
