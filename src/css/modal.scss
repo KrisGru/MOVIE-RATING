@@ -25,7 +25,6 @@ $default-font: arial;
   margin-left: -500px;
   text-align: center;
   z-index: 5;
-
   // wygląd
   background-color: #DAA520;
   height: 600px;
@@ -52,7 +51,7 @@ $default-font: arial;
     top: 15px;
     background-color: white;
   }
-  &__title{
+  &__title {
     flex-basis: 100%;
     font-family: monospace;
     font-weight: 100;
@@ -121,4 +120,8 @@ $default-font: arial;
       text-transform: uppercase;
       font-weight: bolder;
   }
+}
+.modal a {
+  text-decoration: none;
+  color: black;
 }

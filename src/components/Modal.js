@@ -20,7 +20,7 @@ const Modal = ({ movie, handleClickShowModal }) => {
           </header>
           <article className="modal__plot">{movie.Plot}</article>
           <section className="modal__buttons">
-            <button className="modal__btnTrailer">Watch trailer</button>
+            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><button className="modal__btnTrailer">Watch trailer</button></a>
             <button className="modal__btn">To Watch List</button>
           </section>
         </div>
