@@ -11,10 +11,9 @@ const Movie = ({ movie, showModalID, showModalClick, handleClickShowModal }) => 
       {showModalID===movie.imdbID  && showModalClick ?
       <Modal
         movie={movie}
-        handleClickShowModal={handleClickShowModal}
-      />
+        handleClickShowModal={handleClickShowModal} />
       : null}
     </>
-    )
+  )
 
 export default Movie;

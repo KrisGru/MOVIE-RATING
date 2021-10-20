@@ -1,5 +1,3 @@
-
-
 const Nav = () => (
     <div className="menu">
       <ul className="menu__list">
@@ -10,7 +8,7 @@ const Nav = () => (
         <li className="menu__item"><a href=" " className="menu__link">Trailers</a></li>
         <li className="menu__item"><a href=" " className="menu__link">More</a></li>
       </ul>
-      </div>
+    </div>
   )
 
 export default Nav;
