@@ -2,16 +2,14 @@
 $main-color:	#DAA520;
 $main-font: 'Roboto', sans-serif;
 
-
 .searching {
   flex-basis: 100%;
   display: flex;
   align-items: center;
   border: 3px solid $main-color;
-  padding: 5px 0;
+  padding: 15px 0;
   font-family: $main-font;
   &__image {
-    justify-content: flex-start;
     height: 70px;
     padding: 0 3%;
     cursor: pointer;
@@ -25,13 +23,6 @@ $main-font: 'Roboto', sans-serif;
     text-transform: uppercase;
     font-family: $main-font;
     border-radius: 5px;
-  }
-  &__p {
-    font-size: 8px;
-    padding:3px;
-    border: 1px solid $main-color;
-    margin: 2px;
-    cursor: pointer;
   }
   &__btn {
     padding: 0 10px;

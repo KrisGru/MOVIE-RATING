@@ -1,3 +1,7 @@
+import { BsYoutube } from 'react-icons/bs';
+import { AiFillHeart } from 'react-icons/ai';
+import { FaAward } from 'react-icons/fa'
+
 const Modal = ({ movie, handleClickShowModal }) => {
 
   return (
@@ -13,14 +17,14 @@ const Modal = ({ movie, handleClickShowModal }) => {
               <li className="modal__categoryItem">{movie.Rated}</li>
             </ul>
             <ul className="modal__resultsList">
-              <li className="modal__resultsItem">{movie.imdbRating}</li>
+              <li className="modal__resultsItem"><AiFillHeart className="icons"/>{movie.imdbRating}</li>
               <li className="modal__resultsItem">{movie.Metascore}</li>
-              <li className="modal__resultsItem">{movie.Awards}</li>
+              <li className="modal__resultsItem"><FaAward className="icons icons__awards"/>{movie.Awards}</li>
             </ul>
           </header>
           <article className="modal__plot">{movie.Plot}</article>
           <section className="modal__buttons">
-            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><button className="modal__btnTrailer">Watch trailer</button></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><button className="modal__btnTrailer">Watch trailer<BsYoutube className="icons__youtube icons" /></button></a>
             <button className="modal__btn">To Watch List</button>
           </section>
         </div>
