@@ -10,8 +10,8 @@ const ListMovies = ({ listMovies, handleClickShowModal, showModalClick, showModa
           handleClickShowModal={handleClickShowModal}
           showModalClick={showModalClick}
           showModalID={showModalID}
-          />
-        ))}
+        />
+      ))}
     </section>
   )
 

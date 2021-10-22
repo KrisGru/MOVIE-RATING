@@ -9,18 +9,12 @@ $default-font: arial;
 
 html {
   font-size: 10px;
-  background-color: #fff;
-  font-family: $default-font;
-  position: relative;
-  z-index: 1;
 }
 
 .wrapper {
   //kontener
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-
   //pozycja
   max-width:1000px;
   margin: 5px auto 0 auto;
@@ -28,4 +22,15 @@ html {
   font-size: 2rem;
   background-color: #fff;
   box-shadow: 0 0 4px #000;
+}
+
+.icons {
+  color: red;
+  margin: 0 5px;
+  &__youtube {
+    font-size: 20px;
+  }
+  &__awards{
+    color: $main-color;
+  }
 }
