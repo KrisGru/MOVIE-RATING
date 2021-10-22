@@ -5,7 +5,7 @@ import { FaAward } from 'react-icons/fa'
 const Modal = ({ movie, handleClickShowModal }) => {
 
   return (
-    <div className="background">
+    <div className="modalCont">
       <div className="modal" onClick={handleClickShowModal}>
         <img style={{width: "400px", height: "600px"}} className="modal__image" src={movie.Poster} alt="movie's poster" />
         <div className="modal__main">
@@ -29,7 +29,9 @@ const Modal = ({ movie, handleClickShowModal }) => {
           </section>
         </div>
       </div>
-    </div>
+      <div className="modalBackgroud"/>
+
+  </div>
   )}
 
 export default Modal;
