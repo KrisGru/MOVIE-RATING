@@ -1,12 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
-$main-color:	#DAA520;
-$main-font: 'Roboto', sans-serif;
-
 .searching {
-  flex-basis: 100%;
   display: flex;
+  flex-basis: 100%;
   align-items: center;
-  border: 3px solid $main-color;
+  border: 5px solid $main-color;
   padding: 15px 0;
   font-family: $main-font;
   &__image {
@@ -19,27 +15,27 @@ $main-font: 'Roboto', sans-serif;
     height: 40px;
     margin: 0 20px;
     padding: 0 10px;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    font-family: $main-font;
     border-radius: 5px;
+    font-size: 1.8rem;
+    font-family: $main-font;
+    text-transform: uppercase;
   }
   &__btn {
-    padding: 0 10px;
     height: 40px;
+    border-radius: 5px;
+    padding: 0 10px;
     margin-right: 1%;
     font-family: $main-font;
-    cursor: pointer;
     background-color: white;
-    border-radius: 5px;
+    cursor: pointer;
   }
   &__btnSearch {
-    padding: 0 10px;
     height: 40px;
+    border-radius: 5px;
+    padding: 0 10px;
     margin-right: 4%;
     font-family: $main-font;
-    cursor: pointer;
     background-color: white;
-    border-radius: 5px;
+    cursor: pointer;
   }
 }

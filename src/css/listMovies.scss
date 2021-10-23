@@ -1,25 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
-$main-font: 'Roboto', sans-serif;
-$main-color: 	#DAA520;
-
-
-  .listMovies {
-    display: flex;
-    background-color: #fff;
+.listMovies {
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #fff;
+  &__header {
     flex-basis: 100%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    &__header {
-      flex-basis: 100%;
-      margin: 30px 0;
-      background-color: $main-color;
-      font-size: 3rem;
-      font-weight: bold;
-      font-family: $main-font;
-      text-align: center;
-      padding: 10px;
-      letter-spacing: 2px;
-    }
+    text-align: center;
+    padding: 10px;
+    margin: 30px 0;
+    background-color: $main-color;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: $main-font;
+    letter-spacing: 2px;
+  }
 }
 
 .movies {
@@ -44,20 +39,20 @@ $main-color: 	#DAA520;
   }
   &__title {
     flex-basis:100%;
+    text-align: center;
+    height: 40px;
     font-family: monospace;
     font-size: 16px;
-    height: 40px;
-    text-align: center;
   }
   &__category {
+    margin: 0 0 1px 5px;
     font-size: 15px;
     font-family: monospace;
     color: $main-color;
-    margin: 0 0 1px 5px;
   }
   &__rating {
+    margin: 0 0 1px 5px;
     font-size: 15px;
     font-family: monospace;
-    margin: 0 0 1px 5px;
   }
 }

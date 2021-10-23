@@ -1,35 +1,24 @@
-$main-color: #DAA520;
-$default-font: arial;
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,400&display=swap');
-
-
-.modalCont{
+.modalCont {
   width: 100%;
   min-height: 100vh;
   position: absolute;
-
-    .modalBackgroud{
-      
+    .modalBackgroud {
       backdrop-filter: blur(8px);
+      position: fixed;
       width: 100%;
       height: 100%;
-      position: absolute;
       top:0;
       left: 0;
     }
 }
 .modal {
-
-
-  // pierwszy flex przed tym to listMovies i od tego bierze własciwosci
-  //pozycja
-  z-index: 2;
-  position: fixed;
+  z-index: 1;
   display: flex;
+  position: fixed;
+
   left: 50%;
   margin-left: -500px;
-  // wygląd
-  top: 0;
+  top: 100px;
   bottom: 0px;
   height: 600px;
   width: 1000px;
@@ -47,27 +36,27 @@ $default-font: arial;
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%;
-    font-family: monospace;
+    position: relative;
     box-shadow: 10px 10px 20px #000;
     margin-bottom: 15px;
-    position: relative;
     right: 25px;
     top: 15px;
+    font-family: monospace;
     background-color: white;
   }
   &__title {
     flex-basis: 100%;
+    margin: 15px 30px;
     font-weight: 100;
     text-transform: uppercase;
-    margin: 15px 30px;
   }
   &__categoryList {
     flex-basis: 100%;
+    margin: 0 20px 15px 20px;
+    border-bottom: 1px solid $main-color;
+    color: $main-color;
     list-style: none;
     font-size: 15px;
-    color: $main-color;
-    border-bottom: 1px solid $main-color;
-    margin: 0 20px 15px 20px;
   }
   &__categoryItem {
     float: left;
@@ -78,8 +67,8 @@ $default-font: arial;
     }
   }
   &__resultsList {
-    list-style: none;
     margin: 0 20px 15px 20px;
+    list-style: none;
   }
   &__resultsItem {
     float: left;
@@ -87,29 +76,28 @@ $default-font: arial;
   }
   &__plot {
     flex-basis: 100%;
+    text-align: center;
     padding: 30px 15px;
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
-    text-align: center;
   }
   &__buttons {
     flex-basis: 100%;
     align-self: flex-end;
-    height: 10%;
     justify-content: center;
+    height: 10%;
   }
   &__btnTrailer {
       float:left;
+      text-align: center;
       width: 50%;
       height: 100%;
       padding: 15px 0;
       background-color: $main-color;
-      text-align: center;
-      cursor: pointer;
       font-family: monospace;
-      font-weight: 100;
+      font-weight: 100 bolder;
       text-transform: uppercase;
-      font-weight: bolder;
+      cursor: pointer;
   }
   &__btn {
       float:left;
@@ -117,10 +105,10 @@ $default-font: arial;
       height: 100%;
       padding: 15px 0;
       text-align: center;
-      cursor: pointer;
       font-family: monospace;
       text-transform: uppercase;
       font-weight: bolder;
+      cursor: pointer;
   }
 
 }
