@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+$main-font: 'Roboto', sans-serif;
 $main-color: #DAA520;
 $default-font: arial;
 
@@ -12,25 +14,28 @@ html {
 }
 
 .wrapper {
-  //kontener
+  //container
   display: flex;
   flex-wrap: wrap;
-  //pozycja
+  //position
   max-width:1000px;
   margin: 5px auto 0 auto;
-  //wygląd
+  //appearance
   font-size: 2rem;
   background-color: #fff;
   box-shadow: 0 0 4px #000;
 }
 
 .icons {
-  color: red;
+  vertical-align: top;
   margin: 0 5px;
+  color: red;
   &__youtube {
+    vertical-align: middle;
     font-size: 20px;
   }
-  &__awards{
+  &__awards {
+    vertical-align: middle;
     color: $main-color;
   }
 }
