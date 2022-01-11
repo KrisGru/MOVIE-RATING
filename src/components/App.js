@@ -3,46 +3,46 @@ import ListMovies from './ListMovies';
 import Searching from './Searching';
 import Nav from './Nav';
 import Footer from './Footer';
+import ErrorMessage from './ErrorMessage';
 
 const titles = ["orange is the new black", "peaky blinders", "vikings", "lucifer", "how i met your mother", "american pie"]
 
 const App = () => {
-  const [ input, setInput] = useState("")
-  const [ listMovies, setListMovies] = useState([])
-  const [ showModalClick, setShowModalClick] = useState(false)
-  const [ showModalID, setShowModalID] = useState("")
+  const [ listMovies, setListMovies] = useState([]);
+  //in one state? Think about it
+  const [ showErrorModal, setShowErrorModal ] = useState(false);
+  const [ errorText, setErrorText ] = useState([]);
 
-// Handle Fetch
+  // Handle Fetch
   const handleFetch = (title) => {
-  fetch("https://www.omdbapi.com/?t="+ title +"&plot=full&apikey=b6fe8a66")
-  .then(response => response)
-  .then(response => response.json())
-  .then(title => {
-    setListMovies(listMovies => [title, ...listMovies])
+    fetch("https://www.omdbapi.com/?t="+title+"&plot=full&apikey=b6fe8a66")
+    .then((res) => {
+      if (res.ok) { return res.json() }
+      else { throw new Error(res.statusText) }
+    })
+    .then(title => {
+      if (title.Response==="True") {
+      setListMovies(listMovies => [title, ...listMovies])
+    } else {
+        throw new Error(title.Response);
+      }
+    })
+    .catch((error) => {
+         setShowErrorModal(true);
+         setErrorText("No information about the movie with this title :(")
     })
   }
 
-// fetch on the recommmend movies in website, just for look
+// using fetch to display recommend movies
   useEffect(() => {
     titles.map(title => handleFetch(title))}, [])
 
   return (
     <div className="wrapper">
-      <Searching
-        input={input}
-        handleSearchButton={() => {handleFetch(input); setInput('');}}
-        handleInput={(e)=>setInput(e.target.value)}
-        onKeyPress={(event)=> {if(event.key=== 'Enter'){handleFetch(input); setInput('');}}}
-        />
+      <ErrorMessage show={showErrorModal} handleClose={()=>setShowErrorModal(false)} errorText={errorText}/>
+      <Searching handleFetch = {handleFetch.bind()} />
       <Nav />
-      <ListMovies
-        listMovies={listMovies}
-        handleClickShowModal={(id) => {
-          setShowModalID(id)
-          setShowModalClick(!showModalClick) }}
-        showModalClick={showModalClick}
-        showModalID={showModalID}
-        />
+      <ListMovies listMovies={listMovies} />
       <Footer />
     </div>
   );
