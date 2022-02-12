@@ -16,7 +16,7 @@ function ModalView({ movie, handleClickShowModal }) {
   const { Poster, Title, Genre, Runtime, Rated, Awards, imdbRating, Metascore, Plot } = movie
   return (
     <div className="modal" onClick={handleClickShowModal}>
-      <img style={{width: "400px", height: "600px"}} className="modal__image" src={Poster} alt="movie's poster" />
+      <img style={{width: "400px", height: "500px"}} className="modal__image" src={Poster} alt="movie's poster" />
       <div className="modal__main">
         <header className="modal__info">
           <h1 className="modal__title">{Title}</h1>
