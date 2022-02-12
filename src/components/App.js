@@ -9,29 +9,35 @@ const titles = ["orange is the new black", "peaky blinders", "vikings", "lucifer
 
 const App = () => {
   const [ listMovies, setListMovies] = useState([]);
-  //in one state? Think about it
-  const [ showErrorModal, setShowErrorModal ] = useState(false);
-  const [ errorText, setErrorText ] = useState([]);
+  const [ errorModal, setErrorModal ] = useState({
+    show: false,
+    message: ""
+  });
 
   // Handle Fetch
   const handleFetch = (title) => {
     fetch("https://www.omdbapi.com/?t="+title+"&plot=full&apikey=b6fe8a66")
     .then((res) => {
-      if (res.ok) { return res.json() }
+      if (res.ok) { 
+        return res.json() 
+      }
       else { throw new Error(res.statusText) }
     })
-    .then(title => {
-      if (title.Response==="True") {
-      setListMovies(listMovies => [title, ...listMovies])
+    .then(res => {
+      console.log(res)
+      if (res.Response==="True") {
+      setListMovies(listMovies => [res, ...listMovies])
     } else {
-        throw new Error(title.Response);
+        throw new Error(res.Response);
       }
     })
     .catch((error) => {
-         setShowErrorModal(true);
-         setErrorText("No information about the movie with this title :(")
-    })
-  }
+         setErrorModal({
+           show: true,
+           message: "No information about the movie with this title :(" 
+          });
+  })
+}
 
 // using fetch to display recommend movies
   useEffect(() => {
@@ -39,7 +45,7 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <ErrorMessage show={showErrorModal} handleClose={()=>setShowErrorModal(false)} errorText={errorText}/>
+      <ErrorMessage errorModal={errorModal} setErrorModal={setErrorModal} />
       <Searching handleFetch = {handleFetch.bind()} />
       <Nav />
       <ListMovies listMovies={listMovies} />
