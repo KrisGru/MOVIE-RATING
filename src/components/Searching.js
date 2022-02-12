@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs'
 
 const Searching = ({ handleFetch }) => {
-  const [ input, setInput] = useState("");
+  const [ input, setInput ] = useState("");
   return (
     <div className="searching">
       <a href="./" className="searching__link"><img src={logo} className="searching__image" alt="logo" /></a>
