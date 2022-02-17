@@ -1,14 +1,14 @@
-const Message = ({ show, handleClose, errorText }) => {
-  const showHideClassName = show ? "message display-block" : "message display-none";
+const ErrorMessage = ({ errorModal, setErrorModal }) => {
+  const showHideClassName = errorModal.show ? "errorMessageModal display-block" : "errorMessageModal display-none";
   return (
     <div className={showHideClassName}>
-      <section className="message-main">
-        <p>{errorText}</p>
+      <section className="errorMessage">
+        <p>{errorModal.message}</p>
         <p>Try another title!</p>
-        <button className="btn" type="button" onClick={handleClose}>CLOSE MESSAGE</button>
+        <button className="btn" type="button" onClick={()=>setErrorModal({show: false})}>CLOSE MESSAGE</button>
       </section>
     </div>
   );
 };
 
-export default Message;
+export default ErrorMessage;

@@ -15,12 +15,11 @@
   z-index: 1;
   display: flex;
   position: fixed;
-
   left: 50%;
   margin-left: -500px;
-  top: 100px;
+  top: 50px;
   bottom: 0px;
-  height: 600px;
+  height: 500px;
   width: 1000px;
   box-shadow: 0 0 10px #000;
   &__image {

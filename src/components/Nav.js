@@ -3,12 +3,12 @@ import { IoMdArrowDropdown } from 'react-icons/io';
 const Nav = () => (
   <div className="menu">
     <ul className="menu__list">
-      <li className="menu__item"><a href=" " className="menu__link">in theaters</a></li>
-      <li className="menu__item"><a href=" " className="menu__link">coming soon</a></li>
-      <li className="menu__item"><a href=" " className="menu__link">charts</a></li>
-      <li className="menu__item"><a href=" " className="menu__link">TV series</a></li>
-      <li className="menu__item"><a href=" " className="menu__link">Trailers</a></li>
-      <li className="menu__item"><a href=" " className="menu__link">More<IoMdArrowDropdown/></a></li>
+      <li className="menu__item">in theaters</li>
+      <li className="menu__item">coming soon</li>
+      <li className="menu__item">charts</li>
+      <li className="menu__item">TV series</li>
+      <li className="menu__item">Trailers</li>
+      <li className="menu__item">More<IoMdArrowDropdown/></li>
     </ul>
   </div>
 )

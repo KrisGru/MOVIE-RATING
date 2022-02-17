@@ -17,7 +17,7 @@
   }
 }
 
-.movies {
+.movie {
   flex-basis: 25%;
   margin: 15px 5px;
   height: 380px;
@@ -27,10 +27,6 @@
     cursor: pointer;
     transform: scale(1.1);
     transition: 0.3s;
-  }
-  &:focus {
-    transform: scale(1.6);
-    transition: 1s;
   }
   &__image {
     width: 100%;
