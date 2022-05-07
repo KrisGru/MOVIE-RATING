@@ -1,6 +1,6 @@
-# movies&ratings![logo movies&ratings](/src/assets/logo.png)
+# movies&ratings!
 > search engine for films and display data about them using a modal component. 
-> Live demo [_here_](https://sneakprice.herokuapp.com/).
+> Live demo [_here_](https://search-the-movie.herokuapp.com/).
 
 ## Table of Contents
 * [Technologies Used](#technologies-used)
