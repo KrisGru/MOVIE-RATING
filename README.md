@@ -26,6 +26,7 @@ $ npm start
 
 ## Acknowledgements
 - I have learned with the websamuraj [course](https://www.udemy.com/course/kurs-react-od-podstaw/learn/lecture/22304728?start=0#overview) from udemy. Thanks websamuraj!
+- Thanks [omdb API](https://www.omdbapi.com/) for data
 
 ## Contact
 Created by [@Krzysztof Gruszczyński](https://www.linkedin.com/in/krzysztof-gruszczy%C5%84ski-7aa43a206/) - feel free to contact me!
