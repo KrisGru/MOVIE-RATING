@@ -1,6 +1,6 @@
 # movies&ratings!
 > search engine for films and display data about them using a modal component. 
-> Live demo [_here_](https://search-the-movie.herokuapp.com/).
+> Live demo [_here_]([https://search-the-movie.herokuapp.com/](https://movie-rating-krisgru.vercel.app/)).
 
 ## Table of Contents
 * [Technologies Used](#technologies-used)
